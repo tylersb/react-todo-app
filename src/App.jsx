@@ -5,13 +5,13 @@ import TodoForm from './components/TodoForm'
 
 export default function App() {
   const [todos, setTodos] = useState([
-    { text: 'Learn about React',
+    { text: '1',
       isCompleted: false
   },
-    { text: 'Meet friend for lunch',
+    { text: '2',
       isCompleted: false  
   },
-    { text: 'Build really cool todo app',
+    { text: '3',
       isCompleted: false  
   }
   ])
