@@ -5,15 +5,9 @@ import TodoForm from './components/TodoForm'
 
 export default function App() {
   const [todos, setTodos] = useState([
-    { text: '1',
-      isCompleted: false
-  },
-    { text: '2',
-      isCompleted: false  
-  },
-    { text: '3',
-      isCompleted: false  
-  }
+    { text: '1', isCompleted: false },
+    { text: '2', isCompleted: false },
+    { text: '3', isCompleted: false }
   ])
 
   const addTodo = (text) => {
@@ -21,24 +15,36 @@ export default function App() {
     setTodos(newTodos)
   }
 
-  const completeTodo = index => {
+  const completeTodo = (index) => {
     const newTodos = [...todos]
     newTodos[index].isCompleted = !newTodos[index].isCompleted
     setTodos(newTodos)
   }
 
-  const removeTodo = index => {
+  const removeTodo = (index) => {
     const newTodos = [...todos]
     newTodos.splice(index, 1)
     setTodos(newTodos)
   }
 
+  const editTodo = (index, newText) => {
+    const newTodos = [...todos]
+    newTodos[index].text = newText
+    setTodos(newTodos)
+  }
 
   return (
     <div className="app">
       <div className="todo-list">
         {todos.map((todo, index) => (
-          <Todo key={index} index={index} todo={todo} completeTodo={completeTodo} removeTodo={removeTodo}/>
+          <Todo
+            key={index}
+            index={index}
+            todo={todo}
+            completeTodo={completeTodo}
+            removeTodo={removeTodo}
+            editTodo={editTodo}
+          />
         ))}
         <TodoForm addTodo={addTodo} />
       </div>
